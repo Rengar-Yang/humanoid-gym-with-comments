@@ -1,0 +1,6 @@
+Wed Jan  8 09:11:40 2025
+WARNING: mju_openResource: unknown file '/home/zhenyiyang/YZYhumanoid/humanoid-gym-main/resources/robots/Xbot/mjcf/XBot-L-terrain.xml'
+
+Wed Jan 15 13:59:10 2025
+WARNING: Nan, Inf or huge value in QACC at DOF 1. The simulation is unstable. Time = 0.3990.
+
