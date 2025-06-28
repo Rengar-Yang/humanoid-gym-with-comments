@@ -149,12 +149,13 @@ class TaskRegistry():
         env_cfg_dict = class_to_dict(self.env_cfg_for_wandb)
         all_cfg = {**train_cfg_dict, **env_cfg_dict}
         
-        runner_class = eval(train_cfg_dict["runner_class_name"]) # PPO
+        runner_class = eval(train_cfg_dict["runner_class_name"]) #将字符串作为代码执行
+        #OnPolicyRunner类的实例化
         runner = runner_class(env, all_cfg, log_dir, device=args.rl_device)
-        #save resume path before creating a new log_dir
+        #在创建新的log_dir之前保存恢复路径
         resume = train_cfg.runner.resume
         if resume:
-            # load previously trained model
+            # 加载先前训练的模型
             resume_path = get_load_path(log_root, load_run=train_cfg.runner.load_run, checkpoint=train_cfg.runner.checkpoint)
             print(f"Loading model from: {resume_path}")
             runner.load(resume_path, load_optimizer=False)
